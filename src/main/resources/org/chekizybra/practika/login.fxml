@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <?import javafx.scene.control.*?>
+        <?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.chekizybra.practika.logincontroller">
+<Label text="Вход в систему"/>
+<TextField fx:id="loginField" promptText="Логин" />
+<PasswordField fx:id="passwordField" promptText="Пароль" />
+<Button text="Войти" onAction="#handleLogin"/>
+</VBox>

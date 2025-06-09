@@ -2,7 +2,7 @@
         <?import javafx.scene.control.*?>
         <?import javafx.scene.layout.*?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.chekizybra.practika.logincontroller">
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.chekizybra.practika.logincontroller" stylesheets="@style.css">
 <Label text="Вход в систему"/>
 <TextField fx:id="loginField" promptText="Логин" />
 <PasswordField fx:id="passwordField" promptText="Пароль" />

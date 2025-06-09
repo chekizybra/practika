@@ -2,16 +2,17 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<BorderPane xmlns:fx="http://javafx.com/fxml">
+<BorderPane xmlns:fx="http://javafx.com/fxml" stylesheets="@style.css">
 
     <!-- Выезжающее меню -->
     <left>
-        <VBox fx:id="sideMenu" prefWidth="200">
-            <Label text="Меню" style="-fx-text-fill: white; -fx-font-size: 18;" />
-            <Button text="Главная" prefWidth="180"/>
-            <Button text="Настройки" prefWidth="180"/>
-            <Button text="Выход" prefWidth="180"/>
-        </VBox>
+        <TitledPane text="☰ Меню" expanded="false">
+            <VBox spacing="10" style="-fx-padding: 10;">
+                <Button text="Профиль" />
+                <Button text="Настройки" />
+                <Button text="Выход" />
+            </VBox>
+        </TitledPane>
     </left>
 
     <!-- Основной контент -->

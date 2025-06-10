@@ -3,7 +3,7 @@
     -fx-background-color: #F5F5F5;
 }
 
-/* TitledPane (меню) */
+
 .titled-pane {
     -fx-background-color: #D32F2F;
     -fx-text-fill: white;
@@ -16,12 +16,12 @@
     -fx-padding: 10;
 }
 
-/* Контент меню */
+
 .titled-pane > .content {
     -fx-background-color: #EEEEEE;
 }
 
-/* Кнопки меню */
+
 .button {
     -fx-background-color: transparent;
     -fx-text-fill: #424242;
@@ -33,7 +33,7 @@
     -fx-text-fill: #D32F2F;
 }
 
-/* Центр экрана */
+
 .label {
     -fx-text-fill: #424242;
 }

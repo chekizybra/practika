@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane alignment="CENTER" prefHeight="400.0" prefWidth="600.0" stylesheets="@auth_style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.chekizybra.practika.AuthentifactionController">
+    <!--вход-->
+    <VBox fx:id="login" alignment="CENTER" spacing="10">
+        <Label text="Вход" />
+        <TextField fx:id="usernameField" promptText="Имя пользователя" />
+        <PasswordField fx:id="passwordField" promptText="Пароль" />
+        <Label> </Label>
+        <Button text="Войти" />
+        <Button onAction="#showregister" text="Зарегистрироваться" />
+    </VBox>
+    <!--выбор типа пользователя-->
+    <!--клиент-->
+    <VBox fx:id="clientRegister" alignment="CENTER" spacing="10" visible="false">
+        <Label text="Регистрация для клиента" />
+        <TextField fx:id="clientUsername" promptText="Имя пользователя" />
+        <TextField fx:id="clientfio" promptText="ФИО с пробелами" />
+        <TextField fx:id="clientPhone" promptText="Телефон" />
+        <TextField fx:id="clientEmail" promptText="Электронная почта" />
+        <TextField fx:id="clientAddress" promptText="Адрес" />
+        <PasswordField fx:id="clientpassword" promptText="Пароль" />
+        <PasswordField promptText="Повторите пароль" />
+        <Button text="Зарегистрироваться как клиент" />
+        <Button onAction="#choseWorkerReg" text="Зарегистрироваться как работник" />
+        <Button onAction="#showlogin" text="Войти" />
+    </VBox>
+    <!--работник-->
+    <VBox fx:id="workerRegister" alignment="CENTER" prefHeight="588.0" prefWidth="404.0" spacing="10" visible="false">
+        <Label text="Регистрация для работника" />
+        <TextField fx:id="workerfio" promptText="ФИО" />
+        <TextField fx:id="workerPhone" promptText="Телефон" />
+        <HBox>
+        <ComboBox fx:id="workTypes" nodeOrientation="LEFT_TO_RIGHT" prefHeight="23.0" prefWidth="230.0" promptText="Тип работ" StackPane.alignment="CENTER_LEFT">
+            <items>
+            </items>
+        </ComboBox>
+        </HBox>
+        <PasswordField promptText="Пороль" />
+        <PasswordField promptText="Повторите пароль" />
+        <Button text="Зарегистрироваться как работник" />
+        <Button onAction="#choseClientReg" text="Зарегистрироваться как клиент" />
+        <Button onAction="#showlogin" text="Войти" />
+      <effect>
+         <Blend />
+      </effect>
+    </VBox>
+</StackPane>

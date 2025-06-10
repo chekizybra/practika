@@ -1,0 +1,77 @@
+.root {
+    -fx-background-color: linear-gradient(to bottom right, #8B0000, #2F2F2F);
+    -fx-font-family: 'Inter', sans-serif;
+}
+
+VBox {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 15;
+    -fx-padding: 25;
+    -fx-spacing: 15;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 10, 0, 0, 5);
+}
+
+.label {
+    -fx-text-fill: white;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.text-field, .password-field {
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 8 12;
+    -fx-pref-width: 200;
+    -fx-font-size: 14px;
+    -fx-border-color: transparent;
+    -fx-height: 16px ;
+}
+
+
+.button {
+    -fx-background-color: #B22222;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-padding: 8 20;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.3), 4, 0, 0, 2);
+    -fx-border-color: transparent;
+    -fx-font-size: 14px;
+}
+
+.button:hover {
+    -fx-background-color: #DC143C;
+}
+
+.button:pressed {
+    -fx-background-color: #7A0C0C;
+}
+
+.combo-box {
+    -fx-background-color: #2b2b2b;
+    -fx-border-color: transparent;
+    -fx-border-width: 2px;
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
+    -fx-padding: 5 10 5 10;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: #3b3b3b;
+    -fx-text-fill: #eeeeee;
+}
+
+.combo-box:hover {
+}
+
+.combo-box:focused {
+}
+
+.combo-box .arrow {
+    -fx-background-color: white;
+}

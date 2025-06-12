@@ -3,11 +3,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane stylesheets="@style.css" prefHeight="700.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.chekizybra.practika.tarifSpisokController">
+<BorderPane prefHeight="700.0" prefWidth="1400.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.chekizybra.practika.tarifSpisokController">
 
     <!-- Верхнее меню или выбор страниц -->
     <top>
-        <HBox spacing="15" style="-fx-padding: 10; -fx-background-color: #f0f0f0;">
+        <HBox alignment="CENTER_LEFT" spacing="15" style="-fx-padding: 10; -fx-background-color: #2F2F2F;">
             <Button onAction="#goToProfile" text="Профиль" />
         </HBox>
     </top>
@@ -17,10 +17,10 @@
 
         <VBox prefHeight="381.0" prefWidth="646.0" spacing="10" style="-fx-padding: 15;">
             <Label fx:id="titleLabel" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Тарифы" />
-            <VBox alignment="CENTER" visible="false" fx:id="adresField"  style="-fx-background-color: white; -fx-border-radius: 8; -fx-background-radius: 8;">
-                <Label text="Введите адрес" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
-                <TextField fx:id="adresTextField" promptText="Адрес" maxWidth="200" />
-                <Button text="Ввести" onAction="#confirmAddressAndAddTarif" />
+            <VBox fx:id="adresField" alignment="CENTER" style="-fx-background-color: #2F2F2F; -fx-border-radius: 8; -fx-background-radius: 8;">
+                <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Введите адрес" />
+                <TextField fx:id="adresTextField" maxWidth="843.0" prefHeight="36.0" prefWidth="843.0" promptText="Адрес" />
+                <Button alignment="BASELINE_CENTER" onAction="#confirmAddressAndAddTarif" text="Ввести" />
             </VBox>
 
             <TableView fx:id="tarifsTable" prefHeight="600" prefWidth="1700" style="-fx-font-size: 14px;">

@@ -2,34 +2,34 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.collections.FXCollections?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml"  fx:controller="org.chekizybra.practika.profileController" prefWidth="1400" prefHeight="700" stylesheets="@style.css">
+<BorderPane prefHeight="700" prefWidth="1400" stylesheets="@style.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.14-internal" fx:controller="org.chekizybra.practika.profileController">
 
 
 
     <top>
-        <HBox spacing="20" style="-fx-padding: 15;" alignment="CENTER_LEFT">
+        <HBox alignment="CENTER_LEFT" spacing="20" style="-fx-padding: 15; -fx-background-color: #2F2F2F;">
             <VBox spacing="5">
-                <Label fx:id="fioLabel" text="" style="-fx-font-size: 18;" />
+                <Label fx:id="fioLabel" style="-fx-font-size: 18;" text="" />
             </VBox>
-            <Pane HBox.hgrow="ALWAYS"/>
-            <HBox alignment="BASELINE_RIGHT" spacing="15">
-                <Button text="Тарифы" onAction="#vTarifi"/>
-            </HBox>
+            <Pane HBox.hgrow="ALWAYS">
+            <children>
+                   <Button layoutY="3.0" onAction="#vTarifi" text="Тарифы" />
+            </children></Pane>
+            <HBox alignment="BASELINE_LEFT" spacing="15" />
         </HBox>
     </top>
 
     <center>
         <VBox alignment="CENTER" spacing="10" style="-fx-padding: 20;">
-            <Label text="Активные тарифы" style="-fx-font-size: 20;" />
+            <Label style="-fx-font-size: 20;" text="Активные тарифы" />
             <TableView fx:id="ActiveTarif" prefWidth="1300">
                 <columns>
-                    <TableColumn fx:id="tarifName" text="Тариф" prefWidth="370"/>
-                    <TableColumn fx:id="address" text="Адрес подключения" prefWidth="400"/>
-                    <TableColumn fx:id="status" text="Статус" prefWidth="205"/>
-                    <TableColumn fx:id="startDate" text="Дата начала" prefWidth="150"/>
-                    <TableColumn fx:id="endDate" text="Дата окончания" prefWidth="150"/>
+                    <TableColumn fx:id="tarifName" prefWidth="370" text="Тариф" />
+                    <TableColumn fx:id="address" prefWidth="400" text="Адрес подключения" />
+                    <TableColumn fx:id="status" prefWidth="205" text="Статус" />
+                    <TableColumn fx:id="startDate" prefWidth="150" text="Дата начала" />
+                    <TableColumn fx:id="endDate" prefWidth="232.0" text="Дата окончания" />
                 </columns>
             </TableView>
         </VBox>

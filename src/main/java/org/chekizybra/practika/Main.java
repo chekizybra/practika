@@ -12,7 +12,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         mainStage = primaryStage;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("authentification.fxml"));
-        Scene scene = new Scene(loader.load(), 400, 600);
+        Scene scene = new Scene(loader.load(), 400, 650);
         mainStage.setScene(scene);
         mainStage.setTitle("Авторизация");
         mainStage.setResizable(false);

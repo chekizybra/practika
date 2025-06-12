@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane stylesheets="@style.css" prefHeight="700.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.chekizybra.practika.tarifSpisokController">
+
+    <!-- Верхнее меню или выбор страниц -->
+    <top>
+        <HBox spacing="15" style="-fx-padding: 10; -fx-background-color: #f0f0f0;">
+            <Button onAction="#goToProfile" text="Профиль" />
+        </HBox>
+    </top>
+
+
+    <center>
+
+        <VBox prefHeight="381.0" prefWidth="646.0" spacing="10" style="-fx-padding: 15;">
+            <Label fx:id="titleLabel" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Тарифы" />
+            <VBox alignment="CENTER" visible="false" fx:id="adresField"  style="-fx-background-color: white; -fx-border-radius: 8; -fx-background-radius: 8;">
+                <Label text="Введите адрес" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+                <TextField fx:id="adresTextField" promptText="Адрес" maxWidth="200" />
+                <Button text="Ввести" onAction="#confirmAddressAndAddTarif" />
+            </VBox>
+
+            <TableView fx:id="tarifsTable" prefHeight="600" prefWidth="1700" style="-fx-font-size: 14px;">
+                <columns>
+                    <TableColumn fx:id="name" prefWidth="268.0" text="Название" />
+                    <TableColumn fx:id="type" prefWidth="182.0" text="Тип тарифа" />
+                    <TableColumn fx:id="deviceType" prefWidth="187.0" text="устройство" />
+                    <TableColumn fx:id="speed" prefWidth="113.0" text="Скорость" />
+                    <TableColumn fx:id="channels" prefWidth="139.0" text="Каналы" />
+                    <TableColumn fx:id="price" prefWidth="131.0" text="Цена/мес." />
+                    <TableColumn fx:id="action" prefWidth="350.0" text="Действие" />
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+
+</BorderPane>

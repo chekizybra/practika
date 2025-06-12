@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="700" stylesheets="@style.css" prefWidth="1400" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.chekizybra.practika.managerProfileController">
+
+    <!-- Верхняя панель с кнопками -->
+    <top>
+        <HBox alignment="CENTER_RIGHT" spacing="10" style="-fx-background-color: #f0f0f0; -fx-padding: 10 20 10 10;">
+            <Button onAction="#goToProfile" text="Профиль" />
+            <Button onAction="#goToTarifs" text="Тарифы" />
+            <Button onAction="#logout" text="Выход" />
+        </HBox>
+    </top>
+
+    <!-- Центральная часть с заголовком и таблицей -->
+    <center>
+        <VBox spacing="15" style="-fx-padding: 20;">
+            <Label style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Все активные на данный момент тарифы" />
+
+            <!-- Таблица -->
+            <TableView fx:id="activeTarifsTable" prefHeight="600" style="-fx-font-size: 14px;">
+                <columns>
+                    <TableColumn fx:id="nameColumn" prefWidth="246.0" text="Название тарифа" />
+                    <TableColumn fx:id="typeColumn" prefWidth="125.0" text="Тип" />
+                    <TableColumn fx:id="deviceColumn" prefWidth="129.0" text="Устройство" />
+                    <TableColumn fx:id="statusColumn" prefWidth="149.0" text="Статус" />
+                    <TableColumn fx:id="addressColumn" prefWidth="337.0" text="Адрес" />
+                    <TableColumn fx:id="startDateColumn" prefWidth="190.0" text="Дата начала" />
+                    <TableColumn fx:id="endDateColumn" prefWidth="181.0" text="Дата окончания" />
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

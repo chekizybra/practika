@@ -2,38 +2,36 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<BorderPane xmlns:fx="http://javafx.com/fxml" stylesheets="@style.css">
+<?import javafx.collections.FXCollections?>
 
-    <!-- Выезжающее меню -->
-    <left>
-        <TitledPane text="☰ Меню" expanded="false">
-            <VBox spacing="10" style="-fx-padding: 10;">
-                <Button text="Профиль" />
-                <Button text="Настройки" />
-                <Button text="Выход" />
+<BorderPane xmlns:fx="http://javafx.com/fxml"  fx:controller="org.chekizybra.practika.profileController" prefWidth="1400" prefHeight="700" stylesheets="@style.css">
+
+
+
+    <top>
+        <HBox spacing="20" style="-fx-padding: 15;" alignment="CENTER_LEFT">
+            <VBox spacing="5">
+                <Label fx:id="fioLabel" text="" style="-fx-font-size: 18;" />
             </VBox>
-        </TitledPane>
-    </left>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <HBox alignment="BASELINE_RIGHT" spacing="15">
+                <Button text="Тарифы" onAction="#vTarifi"/>
+            </HBox>
+        </HBox>
+    </top>
 
-    <!-- Основной контент -->
     <center>
-        <StackPane fx:id="mainContent" >
-            <VBox>
-                <Label text="Личный кабинет" style="-fx-font-size: 24;" />
-
-                <GridPane hgap="10" vgap="10">
-                    <Label text="ФИО:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                    <TextField fx:id="nameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-
-                    <Label text="Email:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-                    <TextField fx:id="emailField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-
-                    <Label text="Телефон:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-                    <TextField fx:id="phoneField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-                </GridPane>
-
-                <Button text="Сохранить" prefWidth="150"/>
-            </VBox>
-        </StackPane>
+        <VBox alignment="CENTER" spacing="10" style="-fx-padding: 20;">
+            <Label text="Активные тарифы" style="-fx-font-size: 20;" />
+            <TableView fx:id="ActiveTarif" prefWidth="1300">
+                <columns>
+                    <TableColumn fx:id="tarifName" text="Тариф" prefWidth="370"/>
+                    <TableColumn fx:id="address" text="Адрес подключения" prefWidth="400"/>
+                    <TableColumn fx:id="status" text="Статус" prefWidth="205"/>
+                    <TableColumn fx:id="startDate" text="Дата начала" prefWidth="150"/>
+                    <TableColumn fx:id="endDate" text="Дата окончания" prefWidth="150"/>
+                </columns>
+            </TableView>
+        </VBox>
     </center>
 </BorderPane>

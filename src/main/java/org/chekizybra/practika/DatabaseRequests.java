@@ -15,9 +15,10 @@ public class DatabaseRequests {
 
     public static String post(JSONObject jsonchek,String table) throws IOException {
         String json = jsonchek.toString();
+
         RequestBody body = RequestBody.create(json, JSON);
         Request request = new Request.Builder()
-                .url(SUPABASE_URL + table +"?select=*")
+                .url(SUPABASE_URL +"/rest/v1/"+ table +"?select=*")
                 .post(body)
                 .addHeader("apikey", API_KEY)
                 .addHeader("Authorization", "Bearer " + API_KEY)
@@ -30,7 +31,18 @@ public class DatabaseRequests {
     }
     public static String get(String table,String select) throws IOException {
         Request request = new Request.Builder()
-                .url(SUPABASE_URL + table + select)
+                .url(SUPABASE_URL +"/rest/v1/" + table  + select)
+                .get()
+                .addHeader("apikey", API_KEY)
+                .addHeader("Authorization", "Bearer " + API_KEY)
+                .build();
+        try (Response response = client.newCall(request).execute()) {
+            return response.body().string();
+        }
+    }
+    public static String get(String select) throws IOException {
+        Request request = new Request.Builder()
+                .url(SUPABASE_URL +"/rest/v1/" + select)
                 .get()
                 .addHeader("apikey", API_KEY)
                 .addHeader("Authorization", "Bearer " + API_KEY)

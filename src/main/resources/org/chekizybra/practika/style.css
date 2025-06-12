@@ -1,39 +1,82 @@
 .root {
-    -fx-font-family: "calibri";
-    -fx-background-color: #F5F5F5;
+    -fx-background-color: linear-gradient(to bottom right, #8B0000, #2F2F2F);
+    -fx-font-family: 'Inter', sans-serif;
 }
 
+.label {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
 
-.titled-pane {
-    -fx-background-color: #D32F2F;
+.table-view {
+    -fx-background-color: #1e1e1e;
+    -fx-table-cell-border-color: #444;
+    -fx-control-inner-background: #2b2b2b;
     -fx-text-fill: white;
-    -fx-font-size: 16px;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
 }
 
-.titled-pane > .title {
-    -fx-background-color: #D32F2F;
+.table-view .column-header {
+    -fx-background-color: #B22222;
     -fx-text-fill: white;
-    -fx-padding: 10;
-}
-
-
-.titled-pane > .content {
-    -fx-background-color: #EEEEEE;
-}
-
-
-.button {
-    -fx-background-color: transparent;
-    -fx-text-fill: #424242;
     -fx-font-weight: bold;
     -fx-font-size: 14px;
 }
 
-.button:hover {
-    -fx-text-fill: #D32F2F;
+.table-view .table-cell {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER;
 }
 
+.text-field, .password-field, .combo-box {
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 8 12;
+    -fx-font-size: 14px;
+    -fx-border-color: transparent;
+}
 
-.label {
-    -fx-text-fill: #424242;
+.button {
+    -fx-background-color: #B22222;
+    -fx-text-fill: white;
+    -fx-background-radius: 8;
+    -fx-padding: 8 20;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.3), 4, 0, 0, 2);
+}
+
+.button:hover {
+    -fx-background-color: #DC143C;
+}
+
+.button:pressed {
+    -fx-background-color: #7A0C0C;
+}
+
+.combo-box {
+    -fx-background-color: #2b2b2b;
+    -fx-border-color: transparent;
+    -fx-border-width: 2px;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+}
+
+.combo-box .list-cell {
+    -fx-background-color: #3b3b3b;
+    -fx-text-fill: #eeeeee;
+}
+
+.hbox, .vbox {
+    -fx-spacing: 12;
+    -fx-padding: 12;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 10, 0, 0, 5);
 }

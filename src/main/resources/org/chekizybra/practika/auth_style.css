@@ -69,9 +69,6 @@ VBox {
 .combo-box:hover {
 }
 
-.combo-box:focused {
-}
-
 .combo-box .arrow {
     -fx-background-color: white;
 }

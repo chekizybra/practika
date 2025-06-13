@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.json.JSONArray;
@@ -27,9 +28,10 @@ public class managerProfileTarifsController {
     @FXML private TableColumn<Map<String, Object>, String> channels;
     @FXML private TableColumn<Map<String, Object>, String> price;
 
-    @FXML private TextField filterName, filterType, filterDevice;
+    @FXML private Label error;
+    @FXML private TextField filterName, nameNT, speedNT, channelsNT, priceNT;
     @FXML private VBox createNT;
-    @FXML private TextField nameNT, typeNT, deviceNT, speedNT, channelsNT, priceNT;
+    @FXML private ComboBox<String> typeNT, deviceNT, filterType, filterDevice;
 
     private ObservableList<Map<String, Object>> allTarifs = FXCollections.observableArrayList();
 
@@ -41,6 +43,13 @@ public class managerProfileTarifsController {
         speed.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().get("speed").toString()));
         channels.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().get("channels").toString()));
         price.setCellValueFactory(param -> new SimpleStringProperty(param.getValue().get("price").toString()));
+
+        typeNT.setItems(FXCollections.observableArrayList("ТВ", "Интернет", "Комбо"));
+        deviceNT.setItems(FXCollections.observableArrayList("Телевизор", "Модем", "Роутер"));
+        filterType.setItems(FXCollections.observableArrayList("ТВ", "Интернет", "Комбо"));
+        filterDevice.setItems(FXCollections.observableArrayList("Телевизор", "Модем", "Роутер"));
+
+        typeNT.setOnAction(e -> updateVisibilityByTarifType());
 
         loadTarifs();
     }
@@ -89,8 +98,8 @@ public class managerProfileTarifsController {
     @FXML
     private void applyFilters() {
         String nameFilter = filterName.getText().toLowerCase();
-        String typeFilter = filterType.getText().toLowerCase();
-        String deviceFilter = filterDevice.getText().toLowerCase();
+        String typeFilter = filterType.getValue() != (null)? filterType.getValue().toLowerCase() : "";
+        String deviceFilter = filterDevice.getValue() != (null) ? filterDevice.getValue().toLowerCase() : "";
 
         ObservableList<Map<String, Object>> filtered = FXCollections.observableArrayList();
         for (Map<String, Object> row : allTarifs) {
@@ -107,8 +116,8 @@ public class managerProfileTarifsController {
     @FXML
     private void resetFilters() {
         filterName.clear();
-        filterType.clear();
-        filterDevice.clear();
+        filterType.getSelectionModel().clearSelection();
+        filterDevice.getSelectionModel().clearSelection();
         tarifsTable.setItems(FXCollections.observableArrayList(allTarifs));
     }
 
@@ -119,27 +128,81 @@ public class managerProfileTarifsController {
 
     @FXML
     private void addTarif() throws IOException {
+        int speed = 0;
+        int channels = 0;
+
+        if (!speedNT.getText().isEmpty()) {
+            speed = Integer.parseInt(speedNT.getText());
+        }
+
+        if (!channelsNT.getText().isEmpty()) {
+            channels = Integer.parseInt(channelsNT.getText());
+        }
+
         JSONObject newTarif = new JSONObject();
         newTarif.put("name", nameNT.getText());
-        newTarif.put("type", Integer.parseInt(typeNT.getText()));
-        newTarif.put("device_id", Integer.parseInt(deviceNT.getText()));
-        newTarif.put("speed_mb", speedNT.getText());
-        newTarif.put("channels", channelsNT.getText());
+        newTarif.put("device_id", getDeviceId(deviceNT.getValue()));
+        newTarif.put("type", getTarifTypeId(typeNT.getValue()));
+        newTarif.put("speed_mb", speed);
+        newTarif.put("channels", channels);
         newTarif.put("price_for_mounth", priceNT.getText());
-
         DatabaseRequests.post(newTarif, "tarifs");
         loadTarifs();
         createNT.setVisible(false);
         clearCreateForm();
-    }
+        /*if (DatabaseRequests.getSravnit("tarifs", "name", nameNT.getText())) {
+            error.setText("Ошибка! Тариф с таким названием уже существует.");
+        } else {
 
+        }*/
+    }
     private void clearCreateForm() {
         nameNT.clear();
-        typeNT.clear();
-        deviceNT.clear();
+        typeNT.getSelectionModel().clearSelection();
+        deviceNT.getSelectionModel().clearSelection();
         speedNT.clear();
         channelsNT.clear();
         priceNT.clear();
+    }
+
+    private int getTarifTypeId(String type) {
+         int id = 0;
+        switch (type) {
+            case "ТВ" : id = 1;
+            case "Интернет" : id = 2;
+            case "Комбо" : id = 3;
+        }
+        return id;
+    }
+
+    private int getDeviceId(String device) {
+        int id = 0;
+        switch (device) {
+            case "Телевизор" : id = 1;
+            case "Модем" : id = 2;
+            case "Роутер" : id = 3;
+        }
+        return id;
+    }
+
+    private void updateVisibilityByTarifType() {
+        String selected = typeNT.getValue();
+        if (selected == null) return;
+
+        switch (selected) {
+            case "ТВ" -> {
+                speedNT.setVisible(false);
+                channelsNT.setVisible(true);
+            }
+            case "Интернет" -> {
+                speedNT.setVisible(true);
+                channelsNT.setVisible(false);
+            }
+            case "Комбо" -> {
+                speedNT.setVisible(true);
+                channelsNT.setVisible(true);
+            }
+        }
     }
 
     @FXML

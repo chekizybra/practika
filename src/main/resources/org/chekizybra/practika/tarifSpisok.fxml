@@ -7,17 +7,15 @@
 
     <!-- Верхнее меню или выбор страниц -->
     <top>
-        <HBox alignment="CENTER_LEFT" spacing="15" style="-fx-padding: 10; -fx-background-color: #2F2F2F;">
+        <HBox alignment="CENTER_LEFT" spacing="15" style="-fx-padding: 10;">
             <Button onAction="#goToProfile" text="Профиль" />
         </HBox>
     </top>
 
-
     <center>
-
         <VBox prefHeight="381.0" prefWidth="646.0" spacing="10" style="-fx-padding: 15;">
             <Label fx:id="titleLabel" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Тарифы" />
-            <VBox fx:id="adresField" alignment="CENTER" style="-fx-background-color: #2F2F2F; -fx-border-radius: 8; -fx-background-radius: 8;">
+            <VBox fx:id="adresField" alignment="CENTER"  visible="false">
                 <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Введите адрес" />
                 <TextField fx:id="adresTextField" maxWidth="843.0" prefHeight="36.0" prefWidth="843.0" promptText="Адрес" />
                 <Button alignment="BASELINE_CENTER" onAction="#confirmAddressAndAddTarif" text="Ввести" />

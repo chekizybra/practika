@@ -3,36 +3,31 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="700" stylesheets="@style.css" prefWidth="1400" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.chekizybra.practika.managerProfileTarifsController">
+<BorderPane prefHeight="700" prefWidth="1400" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.chekizybra.practika.managerProfileTarifsController">
 
-    <!-- Верхняя панель -->
     <top>
-        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #2F2F2F;; -fx-padding: 10 20 10 10;">
-            <Button onAction="#goToActiveTarifs" text="Активные тарифы" />
+        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 10 20 10 10;">
+            <!--<Button onAction="#goToActiveTarifs" text="Активные тарифы" />-->
         </HBox>
     </top>
 
-    <!-- Центральная часть -->
     <center>
         <VBox spacing="15" style="-fx-padding: 20;">
 
-            <!-- Заголовок и кнопка -->
             <HBox alignment="CENTER_LEFT" spacing="20">
                 <Label style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Все тарифы" />
                 <Button onAction="#showCreateTarifForm" text="Создать тариф" />
             </HBox>
 
-            <!-- Фильтры -->
             <HBox spacing="10">
                 <TextField fx:id="filterName" promptText="Фильтр по названию" />
-                <TextField fx:id="filterType" promptText="Фильтр по типу" />
-                <TextField fx:id="filterDevice" promptText="Фильтр по устройству" />
+                <ComboBox fx:id="filterType" promptText="Фильтр по типу" />
+                <ComboBox fx:id="filterDevice" promptText="Фильтр по устройству" />
                 <Button onAction="#applyFilters" text="Применить" />
                 <Button onAction="#resetFilters" text="Сбросить" />
             </HBox>
 
-            <!-- Таблица тарифов -->
-            <TableView fx:id="tarifsTable" prefHeight="800">
+            <TableView fx:id="tarifsTable" prefHeight="500">
                 <columns>
                     <TableColumn fx:id="name" prefWidth="200" text="Название" />
                     <TableColumn fx:id="type" prefWidth="223.0" text="Тип тарифа" />
@@ -43,17 +38,19 @@
                 </columns>
             </TableView>
 
-            <!-- Форма создания тарифа -->
-            <VBox fx:id="createNT" spacing="10" style="-fx-background-color: #ffffff; -fx-padding: 15; -fx-border-color: #cccccc; -fx-border-width: 1; -fx-background-radius: 8;" visible="false">
-                <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Создание нового тарифа" />
+        <VBox fx:id="createNT" prefHeight="200.0" prefWidth="100.0">
+            <HBox spacing="15" style="-fx-padding: 15; -fx-background-radius: 8;">
                 <TextField fx:id="nameNT" promptText="Название тарифа" />
-                <TextField fx:id="typeNT" promptText="Тип тарифа" />
-                <TextField fx:id="deviceNT" promptText="Тип устройства" />
+                <ComboBox fx:id="typeNT" promptText="Тип тарифа" />
+                <ComboBox fx:id="deviceNT" promptText="Тип устройства" />
                 <TextField fx:id="speedNT" promptText="Скорость Мбит/с" />
                 <TextField fx:id="channelsNT" promptText="Количество каналов" />
                 <TextField fx:id="priceNT" promptText="Цена за месяц" />
                 <Button onAction="#addTarif" text="Добавить тариф" />
-            </VBox>
+            </HBox>
+
+             <Label fx:id="error" alignment="BASELINE_CENTER" text="" textFill="RED" />
+        </VBox>
         </VBox>
     </center>
 </BorderPane>

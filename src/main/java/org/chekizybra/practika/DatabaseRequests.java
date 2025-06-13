@@ -1,7 +1,7 @@
 package org.chekizybra.practika;
 
-import netscape.javascript.JSObject;
 import okhttp3.*;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -40,17 +40,20 @@ public class DatabaseRequests {
             return response.body().string();
         }
     }
-    public static String get(String select) throws IOException {
+    //сравнение таблица в которой сравнивать, поле по которому сравнивать, значение для сравнения если вернет больше чем 0 элементов то вернет тру нет фолз
+    /*public static boolean getSravnit(String table, String equalField, String equal) throws IOException {
         Request request = new Request.Builder()
-                .url(SUPABASE_URL +"/rest/v1/" + select)
+                .url(SUPABASE_URL +"/rest/v1/"+ table +"?"+equalField+"=eq."+equal)
                 .get()
                 .addHeader("apikey", API_KEY)
                 .addHeader("Authorization", "Bearer " + API_KEY)
                 .build();
         try (Response response = client.newCall(request).execute()) {
-            return response.body().string();
+            JSONArray arr = new JSONArray(response.body().toString());
+            return !arr.isEmpty();
         }
-    }
+
+    }*/ //до лучших времён
     public static String deletebyid(int id) throws IOException {
         Request request = new Request.Builder()
                 .url(SUPABASE_URL + id + id)

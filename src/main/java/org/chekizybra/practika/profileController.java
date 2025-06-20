@@ -11,7 +11,6 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,10 +18,8 @@ import java.util.Map;
 public class profileController {
     @FXML
     private Label fioLabel;
-
     @FXML
     private TableView<Map<String, Object>> ActiveTarif;
-
     @FXML private TableColumn<Map<String, Object>, String> tarifName;
     @FXML private TableColumn<Map<String, Object>, String> startDate;
     @FXML private TableColumn<Map<String, Object>, String> endDate;

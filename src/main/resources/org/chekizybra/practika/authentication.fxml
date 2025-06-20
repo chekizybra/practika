@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.scene.text.Text?>
-<StackPane alignment="CENTER" prefHeight="400.0" prefWidth="600.0" stylesheets="@auth_style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.chekizybra.practika.AuthentifactionController">
-
+<StackPane alignment="CENTER" prefHeight="400.0" prefWidth="600.0" stylesheets="@auth_style.css"
+           xmlns="http://javafx.com/javafx/11.0.14-internal"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="org.chekizybra.practika.AuthenticationController">
     <!--вход-->
     <VBox fx:id="login" alignment="CENTER" spacing="10">
         <Label text="Вход" />
@@ -15,7 +14,6 @@
         <Label fx:id="loginerrormassage" textFill="red" text=""/>
         <Button text="Войти" onAction="#login"/>
         <Button onAction="#showregister" text="Зарегистрироваться"/>
-
     </VBox>
     <!--выбор типа пользователя-->
     <!--клиент-->
@@ -52,5 +50,4 @@
         <Button onAction="#choseClientReg" text="Зарегистрироваться как клиент" />
         <Button onAction="#showlogin" text="Войти" />
     </VBox>
-
 </StackPane>

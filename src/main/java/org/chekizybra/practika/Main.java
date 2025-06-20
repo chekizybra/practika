@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         mainStage = primaryStage;
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("authentification.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("authentication.fxml"));
         Scene scene = new Scene(loader.load(), 400, 650);
         mainStage.setScene(scene);
         mainStage.setTitle("Авторизация");

@@ -1,9 +1,7 @@
 package org.chekizybra.practika;
 
 import okhttp3.*;
-import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.io.IOException;
 
 public class DatabaseRequests {
@@ -15,7 +13,6 @@ public class DatabaseRequests {
 
     public static String post(JSONObject jsonchek,String table) throws IOException {
         String json = jsonchek.toString();
-
         RequestBody body = RequestBody.create(json, JSON);
         Request request = new Request.Builder()
                 .url(SUPABASE_URL +"/rest/v1/"+ table +"?select=*")
@@ -35,32 +32,6 @@ public class DatabaseRequests {
                 .get()
                 .addHeader("apikey", API_KEY)
                 .addHeader("Authorization", "Bearer " + API_KEY)
-                .build();
-        try (Response response = client.newCall(request).execute()) {
-            return response.body().string();
-        }
-    }
-    //сравнение таблица в которой сравнивать, поле по которому сравнивать, значение для сравнения если вернет больше чем 0 элементов то вернет тру нет фолз
-    /*public static boolean getSravnit(String table, String equalField, String equal) throws IOException {
-        Request request = new Request.Builder()
-                .url(SUPABASE_URL +"/rest/v1/"+ table +"?"+equalField+"=eq."+equal)
-                .get()
-                .addHeader("apikey", API_KEY)
-                .addHeader("Authorization", "Bearer " + API_KEY)
-                .build();
-        try (Response response = client.newCall(request).execute()) {
-            JSONArray arr = new JSONArray(response.body().toString());
-            return !arr.isEmpty();
-        }
-
-    }*/ //до лучших времён
-    public static String deletebyid(int id) throws IOException {
-        Request request = new Request.Builder()
-                .url(SUPABASE_URL + id + id)
-                .delete()
-                .addHeader("apikey", API_KEY)
-                .addHeader("Authorization", "Bearer " + API_KEY)
-                .addHeader("Prefer", "return=representation")
                 .build();
         try (Response response = client.newCall(request).execute()) {
             return response.body().string();

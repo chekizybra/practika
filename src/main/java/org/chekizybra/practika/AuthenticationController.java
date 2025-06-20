@@ -14,10 +14,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.chekizybra.practika.session.*;
 import java.io.IOException;
 
-public class AuthentifactionController {
+public class AuthenticationController {
     @FXML
     private VBox login;
     @FXML
@@ -59,7 +58,7 @@ public class AuthentifactionController {
     @FXML
     public void initialize() {
         ObservableList<String> items = FXCollections.observableArrayList();
-        items.addAll("Служба поддержки", "Выездной сотрудник", "Менеджер");
+        items.addAll("Менеджер");
         workTypes.setItems(items);
     }
     //поля с ошибкой
@@ -80,14 +79,12 @@ public class AuthentifactionController {
     @FXML private TextField clientPassword;
     @FXML private TextField clientConfirimPassword;
 
-
     //работник
     @FXML private TextField workerUsername;
     @FXML private TextField workerfio;
     @FXML private TextField workerPhone;
     @FXML private TextField workerPassword;
     @FXML private TextField workerConfirimPassword;
-
 
     public void setErrormassage(Label errormassage,String errortext){
         errormassage.setText(errortext);
@@ -205,7 +202,6 @@ public class AuthentifactionController {
                 setErrormassage(loginerrormassage, "Неверный пароль");
                 return;
             }
-
 
             String usernameselect = "?username=eq." + username.getText() + "&select=*";
             System.out.println(usernameselect);

@@ -3,7 +3,6 @@ package org.chekizybra.practika;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,7 +12,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -22,7 +20,6 @@ import java.util.Map;
 
 public class tarifSpisokController {
 
-    @FXML private Label titleLabel;
     @FXML private TableView<Map<String, Object>> tarifsTable;
     @FXML private TableColumn<Map<String, Object>, String> name;
     @FXML private TableColumn<Map<String, Object>, String> type;

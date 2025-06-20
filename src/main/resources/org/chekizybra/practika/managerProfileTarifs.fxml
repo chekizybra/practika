@@ -3,22 +3,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="700" prefWidth="1400" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.chekizybra.practika.managerProfileTarifsController">
-
+<BorderPane prefHeight="700" prefWidth="1400" stylesheets="@style.css"
+            xmlns="http://javafx.com/javafx/11.0.14-internal"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.chekizybra.practika.managerProfileTarifsController">
     <top>
-        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 10 20 10 10;">
-            <!--<Button onAction="#goToActiveTarifs" text="Активные тарифы" />-->
-        </HBox>
+        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 10 20 10 10;"/>
     </top>
-
     <center>
         <VBox spacing="15" style="-fx-padding: 20;">
-
             <HBox alignment="CENTER_LEFT" spacing="20">
                 <Label style="-fx-font-size: 22px; -fx-font-weight: bold;" text="Все тарифы" />
                 <Button onAction="#showCreateTarifForm" text="Создать тариф" />
             </HBox>
-
             <HBox spacing="10">
                 <TextField fx:id="filterName" promptText="Фильтр по названию" />
                 <ComboBox fx:id="filterType" promptText="Фильтр по типу" />
@@ -26,7 +23,6 @@
                 <Button onAction="#applyFilters" text="Применить" />
                 <Button onAction="#resetFilters" text="Сбросить" />
             </HBox>
-
             <TableView fx:id="tarifsTable" prefHeight="500">
                 <columns>
                     <TableColumn fx:id="name" prefWidth="200" text="Название" />
@@ -37,7 +33,6 @@
                     <TableColumn fx:id="price" prefWidth="350.0" text="Цена / мес" />
                 </columns>
             </TableView>
-
         <VBox fx:id="createNT" prefHeight="200.0" prefWidth="100.0">
             <HBox spacing="15" style="-fx-padding: 15; -fx-background-radius: 8;">
                 <TextField fx:id="nameNT" promptText="Название тарифа" />
